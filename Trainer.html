@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Trainer</title>
+    </head>
+    <body><br>
+       Question : <input type="text" id="inpu" > <br>
+       Answer : <input id="ans" type="text"><br><br>
+        <button onclick="abc()"> Save Data</button><hr color="black" size="3" width="70%">
+        Question : <input type="text" id="qu1"><br><br>
+        <button onclick="cba()">Check here</button><br>
+        <p id="texta"> </p>
+        <script>
+        textar=document.getElementById('texta');
+         function abc(){
+             if(inpu.value.length>1){
+                 vinput=inpu.value.toLowerCase();
+             if(localStorage.getItem(vinput)==null){
+                 localStorage.setItem(vinput, ans.value);
+             }
+             else{
+                 texta.textContent="You can't modify data"
+                 console.log("You can't modify data")
+             }
+         }
+         }
+         console.log(localStorage)
+           function cba(){
+               text="";
+               input=qu1.value.toLowerCase();
+               ll=localStorage.length;
+               for(i=0;i<ll;i++){
+                   question=localStorage.key(i);
+                   if(input.includes(question)){
+                       console.log(localStorage.getItem(question));
+                       text=localStorage.getItem(question)
+                   }
+              }
+              if(text.length<2){
+                  text=qu1.value+" Not found "
+                  console.log(text)
+                  textar.textContent = text
+              }
+              else{
+               console.log(text)
+               textar.textContent=text
+              }
+              text=""
+           }
+
+        </script>
+        <style>
+            input{
+                margin: 5px 2px 0px 0px;
+            }
+            textarea{
+                margin: 20px 5px; 
+                border: none;
+                outline-style: none;
+            }
+        </style>
+    </body>
+</html>
